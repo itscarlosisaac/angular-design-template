@@ -1,3 +1,27 @@
-<p>
-  products works!
-</p>
+
+<div class="row">
+  <div class="columns large-6" id="search">
+    <h1>Products</h1>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus assumenda dolore repellat dolorem ab expedita laborum. Doloribus odit minus suscipit, dolorem nihil ut, impedit dignissimos ab perferendis veniam, eligendi rem!</p>
+
+    <form #form="ngForm" (ngSubmit)="addProduct(form.value)">
+      <input type="text" name="title" placeholder="Product name" [(ngModel)]="title">
+
+      <textarea name="description" id="description" cols="30" rows="3" placeholder="Product description" [(ngModel)]="description"></textarea>
+
+      <button type="submit">Add Product</button>
+    </form>
+  </div>
+  <div class="columns large-6"  id="search">
+    <p id="results-label">
+      {{product.lenght}}
+    </p>
+
+    <ul id="products-list">
+      <li *ngFor="let product of produtcts; let i = index">{{product.title}}
+        <span (click)="removeProduct(i)">Delete</span>
+        <p>{{product.description}}</p>
+      </li>
+    </ul>
+  </div>
+</div>
