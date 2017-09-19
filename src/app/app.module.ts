@@ -8,6 +8,7 @@ import { HeaderComponent } from './header/header.component';
 import { ProductsComponent } from './products/products.component';
 import { AboutComponent } from './about/about.component';
 import { routes } from './app.routes';
+import { ProductService } from './products/products.service';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,9 @@ import { routes } from './app.routes';
     BrowserAnimationsModule,
     routes
   ],
-  providers: [],
+  providers: [
+    ProductService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

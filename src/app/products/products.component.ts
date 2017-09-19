@@ -22,8 +22,17 @@ import { ProductService } from './products.service'
     ])
   ]
 })
+
 export class ProductsComponent {
-  products = new ProductService().products;
+  constructor( private productService: ProductService ){};
+  products;
+
+  ngOnInit(){
+    this.products = this.productService.get();
+    this.products.forEach(element => {
+      this.productService.save(element);
+    });
+  }
 
   title:string = '';
   description:string = '';
@@ -31,11 +40,13 @@ export class ProductsComponent {
 
   addProduct(value:any){
     this.products.push({'title': value.title, 'description':value.description });
+    this.productService.save(value);
     this.title = '';
     this.description = '';
   }
 
   removeProduct(product){
+    this.productService.delete(product);
     this.products.splice(product, 1);
   }
 }
