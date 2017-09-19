@@ -9,17 +9,17 @@
 
       <textarea name="description" id="description" cols="30" rows="3" placeholder="Product description" [(ngModel)]="description"></textarea>
 
-      <button type="submit">Add Product</button>
+      <button id="btn" type="submit">Add Product</button>
     </form>
   </div>
   <div class="columns large-6"  id="search">
     <p id="results-label">
-      {{product.lenght}}
+      {{products.lenght}}
     </p>
 
     <ul id="products-list">
-      <li *ngFor="let product of produtcts; let i = index">{{product.title}}
-        <span (click)="removeProduct(i)">Delete</span>
+      <li [@productsAnim]="state" *ngFor="let product of products; let i = index">{{product.title}}
+        <span (click)="removeProduct(i)" class='delete'>Delete</span>
         <p>{{product.description}}</p>
       </li>
     </ul>

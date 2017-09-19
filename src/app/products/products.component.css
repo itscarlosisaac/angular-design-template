@@ -19,7 +19,7 @@ input, textarea{
 
 input::-webkit-input-placeholder,
 textarea::-webkit-input-placeholder{
-  background-color: #95989A !important;
+  color: #95989A !important;
 }
 
 #btn{
@@ -50,9 +50,18 @@ ul li{
   padding: 13px;
   margin: 10px 10px 10px -13px;
   text-indent: 30px;
+  position:relative;
 }
 
 ul li .delete{
-  float: right;
+  position: absolute;
+  right:0; top:0;
   cursor: pointer;
+  background: #bd1111;
+  padding:10px;
+  text-transform: uppercase;
+  font-size: .8em;
+  font-weight: 600;
+  display: block;
+  text-align: center;
 }
