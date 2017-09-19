@@ -2,47 +2,6 @@
 <div style="text-align:center">
   <h1>
     Welcome to {{title}}!
-    <div *ngIf="title; then trueTemplate else falseTemplate ">
-      This wont appear
-    </div>
-    <ng-template #trueTemplate> TRUE </ng-template>
-    <ng-template #falseTemplate> FALSE </ng-template>
   </h1>
-  <h3 [ngSwitch]="likes">
-    <div *ngSwitchCase="'baseball'">Display {{likes}}</div>
-    <div *ngSwitchCase="'basketball'">Display {{likes}}</div>
-    <div *ngSwitchCase="'soccer'">Display {{likes}}</div>
-    <div *ngSwitchDefault>No Found</div>
-  </h3>
-
-   <input #count type="text" (keyup)="0" >
-   <p>{{count.value.length}}</p>
-
-   <button (click)="myFunction(count)">Click Me</button>
-
-   <!-- Adding class via property ( Class Binding ) -->
-   <p [class.danger]="alertStatus('danger')">Danger Class binding examples</p>
-   <p [ngClass]="myClasses">Safe Class binding examples</p>
-
-   <!-- Adding styles via property ( Style Binding ) -->
-   <p [ngStyle]="ngStyle">Styles binding examples</p>
-   <p [style.text-decoration]="decoration">Styles binding examples</p>
-   <p [style.background]="ternary ? 'yellow' : 'green'">Styles binding examples</p>
-
-   <!-- Property Binding -->
-   <p><img [src]="logoUrl" alt="" width="100"></p>
-   <button [disabled]="btnState"> Is Disabled</button>
-
-   <!-- Event Bindings -->
-   <button (click)="toggleLogo($event)"> Toggle Logo</button>
-   <p><img [src]="imgUrl" alt="" width="100" *ngIf="btnState"></p>
-   <button (click)="toggleImage()"> Toggle Image</button>
-
-   <input type="text" (keyup)="keyPressed($event.target.value)">
-   <p>{{typed}}</p>
-
-   <!-- Animations Bindings -->
-   <p [@myAnimation]="animationState">Learning to animate</p>
-   <button (click)="animate()">Animate the paragraph</button>
 </div>
 
