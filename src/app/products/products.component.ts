@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, state, style, transition, animate, keyframes } from '@angular/animations';
-
+import { ProductService } from './products.service'
 
 
 @Component({
@@ -23,16 +23,7 @@ import { trigger, state, style, transition, animate, keyframes } from '@angular/
   ]
 })
 export class ProductsComponent {
-  products = [
-    {
-      "title": 'USB Car Charguer',
-      "description": 'My description in here.'
-    },
-    {
-      "title": 'Second Product Car Charguer',
-      "description": 'My description in here.'
-    }
-  ]
+  products = new ProductService().products;
 
   title:string = '';
   description:string = '';

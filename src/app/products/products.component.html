@@ -19,7 +19,7 @@
 
     <ul id="products-list">
       <li [@productsAnim]="state" *ngFor="let product of products; let i = index">
-        {{product.title}}
+        <a>{{product.title}}</a>
         <span (click)="removeProduct(i)" class='delete'>Delete</span>
         <p>{{product.description}}</p>
       </li>
