@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { trigger, state, style, transition, animate, keyframes } from '@angular/animations';
+import { Component, OnInit } from '@angular/core'
+import { trigger, state, style, transition, animate, keyframes } from '@angular/animations'
 import { ProductService } from './products.service'
+import { Validators, FormBuilder } from '@angular/forms'
 
 
 @Component({
@@ -24,13 +25,21 @@ import { ProductService } from './products.service'
 })
 
 export class ProductsComponent {
-  constructor( private productService: ProductService ){};
+  constructor(
+    private productService: ProductService,
+    private formBuilder: FormBuilder
+  ){};
   products;
+  form;
 
   ngOnInit(){
     this.products = this.productService.get();
     this.products.forEach(element => {
       this.productService.save(element);
+    });
+    this.form = this.formBuilder.group({
+      title: this.formBuilder.control('', Validators.required),
+      description: this.formBuilder.control('', Validators.required)
     });
   }
 

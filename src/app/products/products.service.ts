@@ -16,7 +16,6 @@ export class ProductService {
   get(){
     if ( this.storage.length !== 0 ){
       this.products = [];
-      let temp;
       for( let i = 0; i < this.storage.length; i++ ){
         let title = this.storage.key(i);
         let r = JSON.parse(this.storage.getItem(title));
